@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strata Step 1 — Real Topography (OSM)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { margin:0; }
+#map { height: 100vh; }
+#info { position:absolute; top:10px; left:10px; z-index:1000; background:rgba(0,0,0,.7); color:#fff; padding:10px; border-radius:6px; max-width:280px; }
+</style>
+</head>
+<body>
+<div id="info">
+  <strong>Real public data only</strong><br>
+  OpenStreetMap tiles. Drag to pan, scroll to zoom.<br>
+  No synthetic grid. Real world coverage.
+</div>
+<div id="map"></div>
+<script>
+const map = L.map("map").setView([40.0, -105.0], 10); // Front Range example
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "© OpenStreetMap contributors"
+}).addTo(map);
+</script>
+</body>
+</html>
