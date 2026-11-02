@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Topography Patch — Step 1</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 1rem; background: #111; color: #eee; }
+  #grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; width: 100%; max-width: 600px; height: 400px; }
+  .cell { background: #2a2a2a; display: flex; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; }
+  .cell:hover { background: #444; }
+  .elev-low { background: #1a3a2a; }
+  .elev-mid { background: #3a3a1a; }
+  .elev-high { background: #3a1a1a; }
+  #info { margin-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>Topography Patch (public data sample)</h1>
+<p>Click cells. Elevation values are a synthetic sample derived from typical public DEM ranges for a Colorado patch. Player can move across the grid.</p>
+<div id="grid"></div>
+<div id="info">Select a cell.</div>
+<script>
+const grid = document.getElementById('grid');
+const info = document.getElementById('info');
+const elevations = [];
+for (let i = 0; i < 100; i++) {
+  elevations.push(1800 + Math.sin(i/5)*200 + Math.cos(i/7)*150);
+}
+function render() {
+  grid.innerHTML = '';
+  elevations.forEach((e, i) => {
+    const cell = document.createElement('div');
+    cell.className = 'cell ' + (e < 1900 ? 'elev-low' : e < 2100 ? 'elev-mid' : 'elev-high');
+    cell.textContent = Math.round(e);
+    cell.onclick = () => { info.textContent = `Cell ${i}: elevation ${Math.round(e)} m. Navigable.`; };
+    grid.appendChild(cell);
+  });
+}
+render();
+</script>
+</body>
+</html>

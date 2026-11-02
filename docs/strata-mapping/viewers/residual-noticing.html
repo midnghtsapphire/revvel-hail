@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Residual Noticing — Step 3 prep</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 1rem; background: #111; color: #eee; }
+  #area { position: relative; width: 100%; max-width: 600px; height: 400px; background: #1a2a1a; border: 1px solid #444; }
+  .plant { position: absolute; width: 20px; height: 20px; background: #4a4; border-radius: 50%; }
+  .odd { background: #a44; width: 30px; height: 40px; }
+  .mark { outline: 2px solid yellow; }
+  #status { margin-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>Residual Noticing Cue</h1>
+<p>One plant is odd (taller, different color). Click it to mark. No chemistry required.</p>
+<div id="area"></div>
+<div id="status">Look for the mismatch.</div>
+<script>
+const area = document.getElementById('area');
+const status = document.getElementById('status');
+const plants = [
+  {x: 10, y: 20, odd: false}, {x: 30, y: 40, odd: false}, {x: 50, y: 15, odd: true},
+  {x: 70, y: 60, odd: false}, {x: 20, y: 70, odd: false}, {x: 80, y: 30, odd: false}
+];
+function render() {
+  area.innerHTML = '';
+  plants.forEach((p, i) => {
+    const el = document.createElement('div');
+    el.className = 'plant' + (p.odd ? ' odd' : '');
+    el.style.left = p.x + '%';
+    el.style.top = p.y + '%';
+    el.onclick = () => {
+      el.classList.add('mark');
+      status.textContent = p.odd ? 'Marked the odd plant. Residual spotted.' : 'That one is normal.';
+    };
+    area.appendChild(el);
+  });
+}
+render();
+</script>
+</body>
+</html>
