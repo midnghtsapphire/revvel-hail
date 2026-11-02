@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strata — Step 5 Global Layer</title>
+<style>
+body { margin:0; background:#0c0c0b; color:#f3f1ea; font-family:system-ui; }
+.controls { padding:12px; }
+button { background:#333; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="controls">
+  <h1>Step 5 — Global Layer Stays Current</h1>
+  <p>Background tile stream continues while you do the residual.</p>
+  <button onclick="advance()">Advance background stream</button>
+  <div id="status">Stream idle.</div>
+</div>
+<script>
+let progress = 0;
+function advance() {
+  progress += 15;
+  document.getElementById('status').textContent = `Background mapping advanced ${progress}%. Continues while residual is worked. Global layer stays current.`;
+}
+</script>
+</body>
+</html>

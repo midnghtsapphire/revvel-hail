@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strata — Step 4 Noticing Threshold</title>
+<style>
+body { margin:0; background:#0c0c0b; color:#f3f1ea; font-family:system-ui; }
+.controls { padding:12px; }
+.plant { display:inline-block; margin:10px; padding:12px; background:#1a1a18; border-radius:8px; }
+.odd { background:#3a2a1a; border:2px solid #F7C948; }
+</style>
+</head>
+<body>
+<div class="controls">
+  <h1>Step 4 — Noticing Threshold</h1>
+  <p>One plant looks wrong. You were not looking for it. That is enough to stop.</p>
+</div>
+<div>
+  <div class="plant">Normal plant</div>
+  <div class="plant">Normal plant</div>
+  <div class="plant odd" onclick="notice()">Taller, denser, different color — growing where nothing else does</div>
+  <div class="plant">Normal plant</div>
+</div>
+<div id="status" style="padding:12px;color:#aaa;">Not yet registered.</div>
+<script>
+function notice() {
+  document.getElementById('status').textContent = 'Mismatch registered. Noticing threshold met. Optional deeper reading available later.';
+}
+</script>
+</body>
+</html>

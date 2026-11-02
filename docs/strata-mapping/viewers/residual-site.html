@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strata — Step 3 Residual Site</title>
+<style>
+body { margin:0; background:#0c0c0b; color:#f3f1ea; font-family:system-ui; }
+.controls { padding:12px; }
+button { background:#333; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; margin:4px; }
+.site { margin:20px; padding:16px; border:1px solid #444; border-radius:8px; }
+.marked { border-color:#3DDCFF; }
+</style>
+</head>
+<body>
+<div class="controls">
+  <h1>Step 3 — First Residual Site</h1>
+  <p>Spot the site, mark it, resolve it.</p>
+  <button onclick="mark()">Mark residual</button>
+  <button onclick="resolve()">Resolve</button>
+  <div id="status">Unmarked.</div>
+</div>
+<div class="site" id="site">Clandestine-grave residual (surface disturbance + noticing cue). Click Mark then Resolve.</div>
+<script>
+function mark() {
+  document.getElementById('site').classList.add('marked');
+  document.getElementById('status').textContent = 'Marked. Can be resolved.';
+}
+function resolve() {
+  document.getElementById('status').textContent = 'Resolved. Step 3 contract met.';
+}
+</script>
+</body>
+</html>
