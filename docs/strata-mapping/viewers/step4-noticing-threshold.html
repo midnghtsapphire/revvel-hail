@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Step 4 — Noticing Threshold</title>
+<style>body{font-family:system-ui;background:#0c0c0b;color:#f3f1ea;margin:1rem} .plant{display:inline-block;width:40px;height:60px;background:#2d5a27;margin:4px;vertical-align:bottom} .odd{background:#6b8e23;height:90px} button{background:#2a2a2a;color:#f3f1ea;border:1px solid #444;padding:.5rem 1rem;cursor:pointer}</style></head>
+<body>
+<h1>Step 4: Noticing Threshold</h1>
+<p>Done when a player who was not looking still registers the mismatch.</p>
+<div id="field"></div>
+<button onclick="check()">I noticed the odd one</button>
+<span id="status">Walk the field. The mismatch is visible without being told.</span>
+<script>
+const field=document.getElementById("field");
+for(let i=0;i<12;i++){
+  const p=document.createElement("div");
+  p.className="plant"+(i===7?" odd":"");
+  field.appendChild(p);
+}
+function check(){ document.getElementById("status").textContent="Registered. Noticing threshold met. Optional deeper reading available later."; }
+</script>
+</body></html>

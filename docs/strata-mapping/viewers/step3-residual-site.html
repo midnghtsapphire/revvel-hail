@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Step 3 — First Residual Site</title>
+<style>body{font-family:system-ui;background:#0c0c0b;color:#f3f1ea;margin:1rem} .site{background:#161616;padding:1rem;margin:1rem 0;border-radius:8px;border-left:4px solid #c9a227} button{background:#2a2a2a;color:#f3f1ea;border:1px solid #444;padding:.5rem 1rem;margin:.2rem;cursor:pointer}</style></head>
+<body>
+<h1>Step 3: First Residual Site</h1>
+<p>Done when a single site (clandestine-grave or equivalent) can be spotted, marked, and resolved.</p>
+<div class="site" id="site">
+  <strong>Surface disturbance + noticing cue</strong>
+  <p>Odd plant patch — taller, denser, different color where nothing else grows.</p>
+  <button onclick="mark()">Mark</button>
+  <button onclick="resolve()">Resolve</button>
+  <span id="status">Unmarked. Spot it.</span>
+</div>
+<script>
+function mark(){ document.getElementById("status").textContent="Marked. Ready to resolve."; }
+function resolve(){ document.getElementById("status").textContent="Resolved. Site cleared. Local view improved."; }
+</script>
+</body></html>

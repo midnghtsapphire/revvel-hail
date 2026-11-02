@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Step 5 — Global Layer Stays Current</title>
+<style>body{font-family:system-ui;background:#0c0c0b;color:#f3f1ea;margin:1rem} .log{background:#161616;padding:1rem;margin:1rem 0;border-radius:8px;font-family:monospace;font-size:.85rem} button{background:#2a2a2a;color:#f3f1ea;border:1px solid #444;padding:.5rem 1rem;cursor:pointer}</style></head>
+<body>
+<h1>Step 5: Global Layer Stays Current</h1>
+<p>Done when the driver or tile stream advances while the player is only doing the residual.</p>
+<div class="log" id="log">Background stream: idle</div>
+<button onclick="doResidual()">Do residual only</button>
+<script>
+let ticks=0;
+function doResidual(){
+  document.getElementById("log").textContent="Player doing residual only. Background stream advancing...";
+  const id=setInterval(()=>{
+    ticks++;
+    document.getElementById("log").textContent=`Player on residual. Background tiles filled: ${ticks*12} new cells. Stream continues.`;
+    if(ticks>5) clearInterval(id);
+  },400);
+}
+</script>
+</body></html>
