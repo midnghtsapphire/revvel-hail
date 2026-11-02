@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Noticing — Odd Plant (Expanded)</title>
+<style>
+body { margin:0; background:#1a1a1a; color:#eee; font-family:system-ui; }
+#scene { position:relative; height:70vh; background:linear-gradient(#2a4,#1a3); overflow:hidden; }
+.plant { position:absolute; width:20px; height:40px; background:#3a3; border-radius:4px; }
+.odd { background:#6a4; height:80px; width:30px; box-shadow:0 0 8px #a6f; }
+#log { padding:12px; }
+button { padding:8px 12px; margin:4px; }
+</style>
+</head>
+<body>
+<div id="scene"></div>
+<div id="log">
+  <p>Walk the area. One plant is wrong. Click it when you notice.</p>
+  <button onclick="reset()">Reset scene</button>
+  <div id="status">Scanning...</div>
+</div>
+<script>
+const scene = document.getElementById("scene");
+const status = document.getElementById("status");
+let odd;
+function place() {
+  scene.innerHTML = "";
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement("div");
+    p.className = "plant";
+    p.style.left = (Math.random()*90)+"%";
+    p.style.top = (Math.random()*70+10)+"%";
+    scene.appendChild(p);
+  }
+  odd = document.createElement("div");
+  odd.className = "plant odd";
+  odd.style.left = (Math.random()*80+10)+"%";
+  odd.style.top = (Math.random()*60+10)+"%";
+  odd.onclick = () => { status.textContent = "Noticed. Residual marked. Optional chemistry: denser growth / possible nitrate signature."; odd.style.border = "2px solid #ff0"; };
+  scene.appendChild(odd);
+  status.textContent = "Scene ready. Look for the mismatch.";
+}
+function reset() { place(); }
+place();
+</script>
+</body>
+</html>

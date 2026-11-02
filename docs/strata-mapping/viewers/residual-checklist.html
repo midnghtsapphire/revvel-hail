@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Residual Site Checklist</title>
+<style>
+body { font-family:system-ui; background:#0c0c0b; color:#f3f1ea; padding:20px; max-width:640px; margin:auto; }
+label { display:block; margin:10px 0; }
+button { padding:8px 16px; margin-top:12px; }
+#result { margin-top:16px; padding:12px; background:#1a1a18; border-radius:6px; }
+</style>
+</head>
+<body>
+<h1>Residual Site Check</h1>
+<p>Mark what you observe. Old burial vs recent. No chemistry required.</p>
+<label><input type="checkbox" id="disturbance"> Surface disturbance / soft soil</label>
+<label><input type="checkbox" id="plant"> Odd or oversized plant</label>
+<label><input type="checkbox" id="objects"> Residual objects (metal, fabric, stone)</label>
+<label><input type="checkbox" id="recent"> Looks recent (trash, fresh dig, modern debris)</label>
+<button onclick="check()">Resolve</button>
+<div id="result"></div>
+<script>
+function check() {
+  const d = document.getElementById("disturbance").checked;
+  const p = document.getElementById("plant").checked;
+  const o = document.getElementById("objects").checked;
+  const r = document.getElementById("recent").checked;
+  let msg = "";
+  if (r) msg = "Recent signature. Do not dig. Report or leave.";
+  else if (d && (p || o)) msg = "Old residual confirmed. Artifact path open. Proceed at your speed.";
+  else msg = "Insufficient. Keep noticing.";
+  document.getElementById("result").textContent = msg;
+}
+</script>
+</body>
+</html>
