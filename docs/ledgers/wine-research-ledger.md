@@ -39,3 +39,16 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - Workflows: linear-a tests.yml runs on push and pull_request, on ubuntu-24.04. revvel-hail has no .github/workflows. Proposal (not applied): change `on:` to workflow_dispatch only, or use runs-on: self-hosted.
 - MindMappr: mindmappr-setup and mindmappr-data exist; there is no `agents` repo. mindmappr-queue.sh hardcodes /opt paths. The local setup doc points to LM Studio and reuses Rex/googlieeyes_bot. Nothing new was created.
 ---
+
+## 2026-11-04 (America/Denver): Linear B, Egyptian jar labels, Salgarella cross-check
+- DB: ~/wine-research/artifacts.sqlite (rebuilt from cached sources; previous file kept, nothing deleted). Totals: linear_a 99 (89 lineara.xyz + 10 Salgarella-only GAP rows), linear_b 61, egypt_tut 34, amarna 201, malqata 0.
+- linear_b: 54 VIN docs found by crawling DAMOS (damos.hf.uio.no/ajaxitem/1–6600, about 5932 live items, CC BY-NC-SA 4.0). Each row has a DAMOS permalink. By site: PY 17, KN 17, TH 24, MY 3 (including 7 Salgarella-only GAP rows). Palmer 1994 pages are not verified (GAP).
+- Salgarella 2020 (Ktèma 45, author PDF repository.cam.ac.uk, DOI 10.17863/cam.52619), Tables 1–3:
+  - Linear A: 49 of 59 docs matched. 10 are missing from lineara.xyz and were inserted as gap rows: ARKH2, ARKH3a, ARKH5, KH5, KH18, KH60, KH61, KH85, PH Wy421, ZA10b. 40 lineara.xyz VIN docs are not in Tables 1–2.
+  - Linear B: 53 of 60 matched. Not in DAMOS VIN results: PY C-7063 (DAMOS has KN C 7063, so this is probably a site error in my transcription; check), TH Gp165, 167, 186, 197, 231, 233.
+  - Pages are cited by PDF folio; the printed Ktèma pages are a GAP.
+- egypt_tut: Griffith Institute Carter archive pages (griffith.ox.ac.uk/gri/carter/NNN.html, 620 crawled at 1 req/s): 32 pages mention wine. Merged with "The Wine Jars Speak" (Uppsala thesis, DiVA diva2:528049) catalogue Tut 1–26, which gives Černý 1965 page and No., regnal year, estate and vintner. 26 rows cite Černý; 8 rows have no verified page (GAP).
+- amarna: 201 labels from the same thesis catalogue, citing Fairman & Černý 1951 / Petrie 1894 plates. They are secondary transcriptions; the primary plates were not checked (GAP).
+- malqata: 0. The Hayes 1951 JNES PDFs (imalqata.wordpress.com) only have labels in figures and the OCR is unusable (GAP). Nothing was fabricated.
+- Scripts: scrape_linear_b_damos.py, scrape_tut_griffith.py, load_wine_jars_speak.py, crosscheck_salgarella.py, run.sh (all cached, polite delays).
+---
