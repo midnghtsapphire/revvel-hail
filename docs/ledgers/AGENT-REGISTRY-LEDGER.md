@@ -60,3 +60,4 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 ### 2026-11-04: Proofy, SESSION
 - Did: added the agent identity and permissions rule to README.md, created this ledger and AGENT-PERMISSIONS.md, and appended a pointer line in revvel-standards VISITING_AGENTS.md.
 - Commits: see the follow-up line below.
+- Commits: revvel-hail e892aac3ee767a944e3be75b20b95792d67b7011; revvel-standards VISITING_AGENTS.md pointer (see that repo's history, 2026-11-04).
