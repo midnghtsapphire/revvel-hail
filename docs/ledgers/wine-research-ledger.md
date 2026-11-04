@@ -30,3 +30,12 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 **Next actions:** Create/configure WineResearch agent (or extend CorpusBot/Decipherer), implement scraper, log database location, mindmappr local setup, Actions workaround. All further work appends here.
 
 ---
+
+## 2026-11-04 — Wine DB bootstrap (Grok Bot executor)
+- LM Studio: http://localhost:1234/v1 NOT reachable from the cloud box (curl exit 7). The box can't reach Audrey's localhost, so this says nothing about her machine. Test it locally: `curl -s http://localhost:1234/v1/models`.
+- DB: SQLite `artifacts.sqlite` (box: /workspace/wine-research and ~/wine-research). There's no mindmappr-data or linear-a/data path to put it in.
+- Loaded: linear_a = 89 documents that have VIN/VINb/𐙇 (AB131). They come from the lineara.xyz dataset (linear-a repo, src/grammar/lineara.xyz/LinearAInscriptions.js). By site: HT 46, KH 12, PH 8, ZA 7, KN 5, ARKH 2, PK 2, PE 2, plus 1 each from Crete, Kea, Pyrgos, Thera and Tylissos. Each record has a GORILA volume and PDF page from the dataset link. Printed pages are not verified. 16 records have no GORILA ref (GAP).
+- GAPs: the Salgarella 2020 Tables 1–3 cross-check is not done. Linear B (Palmer 1994; Pylos Wr/Vn, KN Fs/Gm/Uc, TH Gp) has 0 records. egypt_tut/malqata/amarna (Černý 1965; Griffith Institute) have 0 records. Nothing was made up.
+- Workflows: linear-a tests.yml runs on push and pull_request, on ubuntu-24.04. revvel-hail has no .github/workflows. Proposal (not applied): change `on:` to workflow_dispatch only, or use runs-on: self-hosted.
+- MindMappr: mindmappr-setup and mindmappr-data exist; there is no `agents` repo. mindmappr-queue.sh hardcodes /opt paths. The local setup doc points to LM Studio and reuses Rex/googlieeyes_bot. Nothing new was created.
+---
