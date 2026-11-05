@@ -71,3 +71,12 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - Delta: no new artifact rows.
 - Notes: scrape_tut_griffith.py and load_wine_jars_speak.py hit sqlite duplicate column verification_status on schema.sql re-apply (soft-fail || true); verify/crosscheck otherwise OK. GORILA printed pages still GAP; malqata Hayes OCR still GAP; missing PH Wy 42 in SigLA.
 - DB path: /home/box/wine-research/artifacts.sqlite
+
+## 2026-11-05 morning (America/Denver): NI + VIN / nikuleon claim (figs_wine_cooccurrence)
+- Claim tested: Linear B NI is also the figs ideogram; next to VIN it is (1) figs-then-wine co-list on ration/offering tablets (e.g. KN Fs), or (2) Minoan nikuleon holdover as figs shorthand — not a 'fig-wine' compound.
+- Linear B (DAMOS cache): 15 tablets with both NI and VIN — KN Fs 2,4,11,12,17,19,22,23,24,25; KN Uc 161; MY Ue 611; PY An 35; PY Un 2; PY Un 47. No TH in this cache. Same-line NI→VIN: Fs 4,11,12,23,25; Uc 161 (NI 10 VIN 60); Ue 611 (NI 2 VIN S 2). An 35 is VIN→NI (VIN 10 NI 4). Other Fs/Un: NI and VIN on adjacent lines with separate measures. Supports co-list; no NI+VIN ligature/'fig-wine'.
+- Linear A (artifacts.sqlite / lineara.xyz): ≥19 docs with standalone NI + VIN/AB131 (HT 27a,28a,28b,30,44a,44b,89,91,99a,100,114a,121,130,131b; KH 9,11,91,103; CRZg3). Typical adjacent commodities with separate measures.
+- Sources: Athenaeus 3.76e–f (Casaubon; LacusCurtius T76f / Kaibel 3.11) Hermonax νικύλεα Cretan figs — verified. Docs² NI=*30 FIGS (Fig.10 pp.50–51; ideogram prose; F-series *30; Gv ni=figs) — verified via Archive.org OCR. Nagy 2019 Classical Inquiries §5 restates Neumann 1962 acrophony ni ← nikúlea — verified. Firth 2016 Minos 39 pp.241–242 Fs table + Palmer 1994 p.142 / Weilhartner 2003 cites — verified (open PDF). Salgarella 2020 Table 3 lists Fs VIN only — silent on NI/nikuleon.
+- Gaps: Palmer 1994 full text still closed (partial). Melena & Firth KT6 2019 Fs pages paywalled (frontmatter only open; Melena continuous Fs prose GAP). Weilhartner 2003 PDF Cloudflare-blocked. Neumann 1962 / Ruijgh 1962 cited via Nagy only. Perseus 2008.01.0405 ch.76 is the wrong chapter (bread); use 76e–f Lacus / Kaibel 3.11 / Yonge epitome ch.11.
+- DB: wine_facts topic figs_wine_cooccurrence = 12 rows; new ni_vin sources indexed under library/ + source_files (Athenaeus, Docs² excerpts, Nagy, Firth PDF, KT6 frontmatter, DAMOS inventory). Append-only; no artifact deletes.
+- Verdict: (1) and (2) supported; compound 'fig-wine' contradicted by separate quantities and multi-commodity list structure.
