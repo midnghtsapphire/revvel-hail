@@ -64,3 +64,10 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
   - malqata: 98 partial from Met Collection API wine jar labels (17.10.x). Hayes 1951 PDFs cached; figure OCR still unusable for per-label text (GAP).
 - New scripts: verify.py, extract_wine_facts.py, library_index.py, scrape_met_malqata.py, scrape_sigla.py; Linear A/B scrapers fixed (wine glosses; dotted VIN). run.sh chains them. Library mirrored under ~/wine-research/library and /workspace.
 ---
+
+## 2026-11-05 (America/Denver): Daily wine artifact scrape
+- Ran ~/wine-research/./run.sh (cached sources; no deletes). Exit 0.
+- Totals after: amarna 201, egypt_tut 34, linear_a 103, linear_b 67, malqata 98; total 503 (baseline was 503). wine_facts 16; source_files 6651.
+- Delta: no new artifact rows.
+- Notes: scrape_tut_griffith.py and load_wine_jars_speak.py hit sqlite duplicate column verification_status on schema.sql re-apply (soft-fail || true); verify/crosscheck otherwise OK. GORILA printed pages still GAP; malqata Hayes OCR still GAP; missing PH Wy 42 in SigLA.
+- DB path: /home/box/wine-research/artifacts.sqlite
