@@ -52,3 +52,15 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - malqata: 0. The Hayes 1951 JNES PDFs (imalqata.wordpress.com) only have labels in figures and the OCR is unusable (GAP). Nothing was fabricated.
 - Scripts: scrape_linear_b_damos.py, scrape_tut_griffith.py, load_wine_jars_speak.py, crosscheck_salgarella.py, run.sh (all cached, polite delays).
 ---
+
+## 2026-11-04 evening (America/Denver): verification pass, Malqata Met scrape, wine_facts, source library
+- Schema (additive only): artifacts.verification_status|verified_source|verified_page|verified_at|verification_notes; tables wine_facts and source_files. Original columns never overwritten; nothing deleted.
+- Counts now: linear_a 103; linear_b 67; egypt_tut 34; amarna 201; malqata 98. wine_facts 16. source_files 6651 (~51 MB under library/).
+- Verification (verified / partial / unverified):
+  - linear_a: 7 / 83 / 13. SigLA+CEFAEL confirmed ARKH2, ARKH3a, ARKH5, KH18, KH60, KH61, KH85, ZA10b (GORILA EtCret 21.3 scan pages). Salgarella Ktèma 45 printed pages mapped via Persée to 161–171 (Tables 1–3 = pp.163–165). 13 still unverified (mostly newer finds / no second source). GORILA printed pagination still GAP (scans not stored; linear-a policy). PHWY421 ↔ PHWy42 partial crosswalk; SigLA 404 for PH Wy 421.
+  - linear_b: 7 / 60 / 0. TH Gp 165,167,186,197,231,233 verified in DAMOS with dotted VIN (earlier scraper miss). PY C-7063 retained as Salgarella gap; DAMOS has KN C-7063 with VIN (probable table site error). Palmer 1994 full text still not open (GAP); chapter TOC facts only.
+  - egypt_tut: 26 verified (Černý page present) / 8 partial (Griffith wine-jar cards without Černý; Beinlich on 432, 536).
+  - amarna: 201 partial (thesis catalogue; primary plates not re-checked).
+  - malqata: 98 partial from Met Collection API wine jar labels (17.10.x). Hayes 1951 PDFs cached; figure OCR still unusable for per-label text (GAP).
+- New scripts: verify.py, extract_wine_facts.py, library_index.py, scrape_met_malqata.py, scrape_sigla.py; Linear A/B scrapers fixed (wine glosses; dotted VIN). run.sh chains them. Library mirrored under ~/wine-research/library and /workspace.
+---
