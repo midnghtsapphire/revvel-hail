@@ -88,3 +88,8 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
   | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. PR creation is the test for comments. [VERIFY until the draft PR exists] | Repo Settings, Features, plus the app's Issues/PRs permission (fixed by the platform). |
   | Delete repos | Not attempted. [VERIFY] no. | Keep that off. |
 - Unverified: [VERIFY] full GitHub App permission list for the Cursor installation (contents, pull requests, issues, actions, administration). [VERIFY] whether branch protection exists on `main` (the protection endpoint was 403, and rulesets were empty).
+
+### 2026-11-06: Cursor cloud agent (Grok 4.7), SESSION
+- Did: Added the fleet orchestrator operating prompt at `docs/orchestrator/ORCHESTRATOR_PROMPT.md`, plus `docs/orchestrator/README.md` and `docs/orchestrator/CHANGELOG.md`. Added one README bullet under the projects line pointing at `docs/orchestrator/`. Recorded this arrival above. Nothing was deleted. This agent did not merge.
+- Commits: `0fc2ea1288853c59ad5c1db9b9d4dd5246255c4e` (arrival), `a9bd8e6ab08b030cb065e2b1aca6623ea389d73d` (prompt). Branch `feat/orchestrator-prompt-2026-11-06`, based on `daily/2026-11-06` (created from `main` at `92250e7`, no unique commits on the daily branch).
+- PR: draft into `daily/2026-11-06`. Link appended in the next ledger line after the PR exists.
