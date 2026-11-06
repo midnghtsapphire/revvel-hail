@@ -24,3 +24,7 @@ Every agent, visiting agents included, must do this the first time it works in t
 The ledger is the history. AGENT-PERMISSIONS.md is the current state.
 
 - Agent permissions lookup table: [AGENT-PERMISSIONS.md](AGENT-PERMISSIONS.md) (added 2026-11-04)
+
+## Agent orchestration
+
+XP Swarm Orchestrator pointer (source of truth is revvel-standards): [docs/orchestrator/XP-SWARM-ORCHESTRATOR.md](docs/orchestrator/XP-SWARM-ORCHESTRATOR.md)
