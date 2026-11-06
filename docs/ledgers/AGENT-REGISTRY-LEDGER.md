@@ -61,3 +61,29 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 - Did: added the agent identity and permissions rule to README.md, created this ledger and AGENT-PERMISSIONS.md, and appended a pointer line in revvel-standards VISITING_AGENTS.md.
 - Commits: see the follow-up line below.
 - Commits: revvel-hail e892aac3ee767a944e3be75b20b95792d67b7011; revvel-standards VISITING_AGENTS.md pointer (see that repo's history, 2026-11-04).
+
+### 2026-11-06: Cursor cloud agent, ARRIVAL
+- Platform: Cursor cloud agent (cloud/background agent).
+- Model (if known): grok-4.7-high-fast (Grok 4.7).
+- Acts on GitHub as: Cursor GitHub App. `gh auth status` reports account `cursor` with a `ghs_` installation token. Commit author is `Cursor Agent <cursoragent@cursor.com>`. Does not post as Audrey's user `midnghtsapphire`.
+- How verified: `gh auth status`; `gh api user` (403, "Resource not accessible by integration"); `gh api repos/midnghtsapphire/revvel-hail` (default branch `main`; permissions object all false); branch-protection GET on `main` (403). No token pasted. Run: https://cursor.com/agents/bc-90ec15d8-825e-5907-bc23-7e8783c0e502. Owning user on the run: Audrey Evans.
+- Permissions:
+  | Capability | Has it? | Audrey can change it? (where/how) or fixed by platform |
+  |---|---|---|
+  | Read repos (which) | Yes for this checkout of `midnghtsapphire/revvel-hail`, and contents read of `midnghtsapphire/revvel-standards` succeeded. | Yes for which repos: GitHub App installation settings for Cursor. The permission set is fixed by the platform. |
+  | Write/push (which repos) | Expected on the task branch of revvel-hail via the cloud-agent git remote. Permissions JSON returned all false [VERIFY against the push of this branch]. | Same as above. |
+  | Admin | Not shown. Permissions JSON admin=false. `/user` is 403. | Fixed for this app token unless Audrey uses a different credential. |
+  | Merge PRs | Not used. This agent does not merge its own PRs. Whether the app can merge is [VERIFY]; branch protection could not be read (403). | Yes: branch protection or rulesets. App install can be removed. |
+  | Run/edit Actions workflows | Not tested. Existing docs row says the Cursor app can monitor and re-run Actions [VERIFY this token]. | App permission list is fixed by the platform. |
+  | Create repos | Not attempted [VERIFY]. | App installation settings. |
+  | Post Discussions/issues/comments | PR creation is the intended write. Discussions on revvel-hail were off as of 2026-11-04 [VERIFY today]. | Repo feature settings; app install. |
+  | Delete repos | Not attempted. No `delete_repo` check available on this integration token [VERIFY]. | Keep repo deletion off the app if GitHub exposes that setting. |
+- Unverified: [VERIFY] push rights until this branch pushes. [VERIFY] branch protection on `main`. [VERIFY] whether the app can merge, create repos, or edit workflows.
+
+### 2026-11-06: Cursor cloud agent, SESSION
+- Did: added a thin pointer at `docs/orchestrator/XP-SWARM-ORCHESTRATOR.md` (orchestrator SSOT stays in revvel-standards; prompt not copied). Added one README line under "Agent orchestration". Appended this arrival. revvel-hail has no `daily/YYYY-MM-DD` branch, so the PR targets `main` and is not a draft. Not merged.
+- Commits/PRs: this commit on `cursor/xp-swarm-orchestrator-pointer-e502`. PR URL recorded in the follow-up line after the PR exists.
+
+### 2026-11-06: Cursor cloud agent, SESSION (follow-up)
+- Did: push of `cursor/xp-swarm-orchestrator-pointer-e502` succeeded, so write/push on this repo is confirmed for this app token. Opened a normal PR into `main` (no `daily/` branch). Did not merge.
+- Commits/PRs: `5bfe3122b63fa65105f195662cdf22bbeaa9fe72`; https://github.com/midnghtsapphire/revvel-hail/pull/4
