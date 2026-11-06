@@ -83,3 +83,7 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 ### 2026-11-06: Cursor cloud agent, SESSION
 - Did: added a thin pointer at `docs/orchestrator/XP-SWARM-ORCHESTRATOR.md` (orchestrator SSOT stays in revvel-standards; prompt not copied). Added one README line under "Agent orchestration". Appended this arrival. revvel-hail has no `daily/YYYY-MM-DD` branch, so the PR targets `main` and is not a draft. Not merged.
 - Commits/PRs: this commit on `cursor/xp-swarm-orchestrator-pointer-e502`. PR URL recorded in the follow-up line after the PR exists.
+
+### 2026-11-06: Cursor cloud agent, SESSION (follow-up)
+- Did: push of `cursor/xp-swarm-orchestrator-pointer-e502` succeeded, so write/push on this repo is confirmed for this app token. Opened a normal PR into `main` (no `daily/` branch). Did not merge.
+- Commits/PRs: `5bfe3122b63fa65105f195662cdf22bbeaa9fe72`; https://github.com/midnghtsapphire/revvel-hail/pull/4
