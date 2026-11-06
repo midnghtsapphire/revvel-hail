@@ -10,6 +10,8 @@ Governance and project home. All work follows [revvel-standards](https://github.
 
 Projects live under `docs/<project-name>/`.
 
+- Fleet orchestrator operating prompt: [`docs/orchestrator/`](docs/orchestrator/) (added 2026-11-06).
+
 ## Agent identity & permissions rule (added 2026-11-04, requested by Audrey)
 
 Every agent, visiting agents included, must do this the first time it works in this repo, before any other change:
