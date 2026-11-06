@@ -80,3 +80,11 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - Gaps: Palmer 1994 full text still closed (partial). Melena & Firth KT6 2019 Fs pages paywalled (frontmatter only open; Melena continuous Fs prose GAP). Weilhartner 2003 PDF Cloudflare-blocked. Neumann 1962 / Ruijgh 1962 cited via Nagy only. Perseus 2008.01.0405 ch.76 is the wrong chapter (bread); use 76e–f Lacus / Kaibel 3.11 / Yonge epitome ch.11.
 - DB: wine_facts topic figs_wine_cooccurrence = 12 rows; new ni_vin sources indexed under library/ + source_files (Athenaeus, Docs² excerpts, Nagy, Firth PDF, KT6 frontmatter, DAMOS inventory). Append-only; no artifact deletes.
 - Verdict: (1) and (2) supported; compound 'fig-wine' contradicted by separate quantities and multi-commodity list structure.
+
+## 2026-11-06 ~03:03 MST (America/Denver): Daily wine artifact scrape
+- Ran `/home/box/wine-research/./run.sh` (no `--refresh`; cached/live sources; no deletes). Exit 0.
+- Before → after: amarna 201→201, egypt_tut 34→34, linear_a 103→103, linear_b 67→67, malqata 98→98; total 503→503 (Δ0). wine_facts 28→28 (Δ0). source_files 6663→6675 (Δ+12 library index registrations).
+- Verification unchanged: verified 52 / partial 438 / unverified 13.
+- Status: ok (partial soft-fails only). Known non-fatal: `scrape_tut_griffith.py` and `load_wine_jars_speak.py` hit `duplicate column name: verification_status` on schema.sql re-apply (`|| true` in run.sh). No new hard failures. No newer scrapers beyond run.sh (only unused helper: dbutil.py).
+- Note: no new artifact records.
+- DB: `/home/box/wine-research/artifacts.sqlite`
