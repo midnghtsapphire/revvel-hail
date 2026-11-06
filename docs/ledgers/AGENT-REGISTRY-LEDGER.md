@@ -61,3 +61,30 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 - Did: added the agent identity and permissions rule to README.md, created this ledger and AGENT-PERMISSIONS.md, and appended a pointer line in revvel-standards VISITING_AGENTS.md.
 - Commits: see the follow-up line below.
 - Commits: revvel-hail e892aac3ee767a944e3be75b20b95792d67b7011; revvel-standards VISITING_AGENTS.md pointer (see that repo's history, 2026-11-04).
+
+### 2026-11-06: Cursor cloud agent (Grok 4.7), ARRIVAL
+- Platform: Cursor cloud agent
+- Model (if known): Grok 4.7 (`grok-4.7-high-fast`)
+- Acts on GitHub as: **Cursor GitHub App** (`gh` login `cursor`, GitHub App installation token). Posts as `midnghtsapphire`? **no**. Commit author on this box: `Cursor Agent <cursoragent@cursor.com>`.
+- Run: https://cursor.com/agents/bc-b3dbdc9a-ad57-5cf6-b113-90e29d4cd8f8 (owned by Audrey Evans; email not copied into this public ledger)
+- How verified: `gh auth status`, `gh api user` (403, app token is not a user), `gh api /installation/repositories`, `gh api repos/midnghtsapphire/revvel-hail` response headers and body, `gh api repos/midnghtsapphire/revvel-hail/rulesets`, contents read of `README.md`, and a push of `daily/2026-11-06` (same commit as `main`, no file changes). No token was printed.
+- Verified facts:
+  - This installation lists exactly one repo: `midnghtsapphire/revvel-hail`.
+  - Contents read on that repo succeeded.
+  - Push of a new branch succeeded (write is real).
+  - `GET /repos/midnghtsapphire/revvel-hail/branches/main/protection` returned 403.
+  - Rulesets list returned `[]`.
+  - The repo JSON `permissions` object was all false. That conflicts with the successful contents read and branch push, so treat that object as unreliable for this app token. [VERIFY] why GitHub returns it that way.
+  - revvel-hail is public. Discussions are off. Issues are on.
+- Permissions:
+  | Capability | Has it? | Audrey can change it? (where/how) or fixed by platform |
+  |---|---|---|
+  | Read repos (which) | Yes: `midnghtsapphire/revvel-hail` only, on this installation. | **Audrey can change which repos** in GitHub App installation settings (https://github.com/settings/installations, Cursor). **The app permission set is fixed by the platform.** |
+  | Write/push (which repos) | Yes: pushed `daily/2026-11-06` to `midnghtsapphire/revvel-hail`. | Same as above. |
+  | Admin | No evidence of admin. Branch protection read returned 403. | Same. Administration is not shown as granted. |
+  | Merge PRs | Not attempted. This agent will not merge its own PRs. Rulesets on the repo are empty. [VERIFY] whether the token could merge if asked. | Audrey can add branch protection or rulesets under the repo Settings. The agent rule forbids merging anyway. |
+  | Run/edit Actions workflows | Not attempted. [VERIFY] | App installation settings. Workflow runs may still need a human. |
+  | Create repos | Not attempted. `GET /user` is 403. [VERIFY] likely no. | Creating repos is not something this installation token demonstrated. |
+  | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. PR creation is the test for comments. [VERIFY until the draft PR exists] | Repo Settings, Features, plus the app's Issues/PRs permission (fixed by the platform). |
+  | Delete repos | Not attempted. [VERIFY] no. | Keep that off. |
+- Unverified: [VERIFY] full GitHub App permission list for the Cursor installation (contents, pull requests, issues, actions, administration). [VERIFY] whether branch protection exists on `main` (the protection endpoint was 403, and rulesets were empty).
