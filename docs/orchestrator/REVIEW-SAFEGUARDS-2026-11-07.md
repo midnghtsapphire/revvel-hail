@@ -107,3 +107,5 @@ Not separate Cubic IDs. The merge cell stated policy as if it were a test result
 - Python-Markdown rendered the six edited Markdown files. Superseded phrases remain only inside HTML comments in that HTML, so a browser does not show them as instructions.
 
 `import markdown` was missing on the first run. `pip install markdown` provided the renderer used above. That package is not a repo dependency.
+
+Safeguards commit: `f3941f0ca7a22b026d572362dd81072f4a1ddf29` on `feat/orchestrator-prompt-2026-11-06`.
