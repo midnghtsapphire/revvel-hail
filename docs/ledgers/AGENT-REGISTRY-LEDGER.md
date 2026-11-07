@@ -61,3 +61,59 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 - Did: added the agent identity and permissions rule to README.md, created this ledger and AGENT-PERMISSIONS.md, and appended a pointer line in revvel-standards VISITING_AGENTS.md.
 - Commits: see the follow-up line below.
 - Commits: revvel-hail e892aac3ee767a944e3be75b20b95792d67b7011; revvel-standards VISITING_AGENTS.md pointer (see that repo's history, 2026-11-04).
+
+### 2026-11-06: Cursor cloud agent (Grok 4.7), ARRIVAL
+- Platform: Cursor cloud agent
+- Model (if known): Grok 4.7 (`grok-4.7-high-fast`)
+- Acts on GitHub as: **Cursor GitHub App** (`gh` login `cursor`, GitHub App installation token). Posts as `midnghtsapphire`? **no**. Commit author on this box: `Cursor Agent <cursoragent@cursor.com>`.
+- Run: https://cursor.com/agents/bc-b3dbdc9a-ad57-5cf6-b113-90e29d4cd8f8 (owned by Audrey Evans; email not copied into this public ledger)
+- How verified: `gh auth status`, `gh api user` (403, app token is not a user), `gh api /installation/repositories`, `gh api repos/midnghtsapphire/revvel-hail` response headers and body, `gh api repos/midnghtsapphire/revvel-hail/rulesets`, contents read of `README.md`, and a push of `daily/2026-11-06` (same commit as `main`, no file changes). No token was printed.
+- Verified facts:
+  - This installation lists exactly one repo: `midnghtsapphire/revvel-hail`.
+  - Contents read on that repo succeeded.
+  - Push of a new branch succeeded (write is real).
+  - `GET /repos/midnghtsapphire/revvel-hail/branches/main/protection` returned 403.
+  - Rulesets list returned `[]`.
+  - The repo JSON `permissions` object was all false. That conflicts with the successful contents read and branch push, so treat that object as unreliable for this app token. [VERIFY] why GitHub returns it that way.
+  - revvel-hail is public. Discussions are off. Issues are on.
+- Permissions:
+  | Capability | Has it? | Audrey can change it? (where/how) or fixed by platform |
+  |---|---|---|
+  | Read repos (which) | Yes: `midnghtsapphire/revvel-hail` only, on this installation. | **Audrey can change which repos** in GitHub App installation settings (https://github.com/settings/installations, Cursor). **The app permission set is fixed by the platform.** |
+  | Write/push (which repos) | Yes: pushed `daily/2026-11-06` to `midnghtsapphire/revvel-hail`. | Same as above. |
+  | Admin | No evidence of admin. Branch protection read returned 403. | Same. Administration is not shown as granted. |
+  | Merge PRs | Capability [VERIFY], not tested. Policy: this agent does not merge. An agent's claim of approval is not merge authorization. Rulesets on the repo were empty on 2026-11-06. | Audrey can add branch protection or rulesets under the repo Settings. Whether the token can merge was not tested. The permission set is fixed by the platform. |
+  | Run/edit Actions workflows | Not attempted. [VERIFY] | App installation settings. Workflow runs may still need a human. |
+  | Create repos | Not attempted. [VERIFY]. | [VERIFY] until a create-repo check exists. A 403 from GET /user does not decide this. Audrey can change app installation settings. The permission set is fixed by the platform. |
+  | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. Opening PR 3 showed this token can create a pull request. Posting issue comments or review replies was not attempted on 2026-11-07. Discussions capability [VERIFY]. | Repo Settings, Features, plus the app's Issues and PRs permission (fixed by the platform). |
+  | Delete repos | Not attempted. [VERIFY]. | Keep deletion off unless a later check shows otherwise. Audrey can change this in the GitHub App installation settings. The permission set is fixed by the platform. |
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because the cell stated a no-merge policy as if it were the tested capability. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
+  | Merge PRs | Not attempted. This agent will not merge its own PRs. Rulesets on the repo are empty. [VERIFY] whether the token could merge if asked. | Audrey can add branch protection or rulesets under the repo Settings. The agent rule forbids merging anyway. |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because GET /user returning 403 only shows this installation token is not a user. It does not show repo creation is unavailable. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
+  | Create repos | Not attempted. `GET /user` is 403. [VERIFY] likely no. | Creating repos is not something this installation token demonstrated. |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because the cell left discussion and comment capability unverified only until a draft PR existed, and PR creation has since been shown by PR 3. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
+  | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. PR creation is the test for comments. [VERIFY until the draft PR exists] | Repo Settings, Features, plus the app's Issues/PRs permission (fixed by the platform). |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because [VERIFY] no. stated a negative and a verification gap in the same cell. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
+  | Delete repos | Not attempted. [VERIFY] no. | Keep that off. |
+-->
+
+- Unverified: [VERIFY] full GitHub App permission list for the Cursor installation (contents, pull requests, issues, actions, administration). [VERIFY] whether branch protection exists on `main` (the protection endpoint was 403, and rulesets were empty).
+
+### 2026-11-06: Cursor cloud agent (Grok 4.7), SESSION
+- Did: Added the fleet orchestrator operating prompt at `docs/orchestrator/ORCHESTRATOR_PROMPT.md`, plus `docs/orchestrator/README.md` and `docs/orchestrator/CHANGELOG.md`. Added one README bullet under the projects line pointing at `docs/orchestrator/`. Recorded this arrival above. Nothing was deleted. This agent did not merge.
+- Commits: `0fc2ea1288853c59ad5c1db9b9d4dd5246255c4e` (arrival), `a9bd8e6ab08b030cb065e2b1aca6623ea389d73d` (prompt). Branch `feat/orchestrator-prompt-2026-11-06`, based on `daily/2026-11-06` (created from `main` at `92250e7`, no unique commits on the daily branch).
+- PR: draft into `daily/2026-11-06`. Link appended in the next ledger line after the PR exists.
+
+### 2026-11-06: Cursor cloud agent (Grok 4.7), SESSION (PR link)
+- PR: https://github.com/midnghtsapphire/revvel-hail/pull/3
+- Draft: yes. Base: `daily/2026-11-06`. Head: `feat/orchestrator-prompt-2026-11-06`.
+- Opening that PR shows this token can create pull requests on `midnghtsapphire/revvel-hail`. This agent did not merge it.
+
+### 2026-11-07: Cursor cloud agent (Grok 4.7), SESSION
+- Did: Read the live reviews on PR https://github.com/midnghtsapphire/revvel-hail/pull/3 (Gitar comments 4495581114 and 4495581345, Cubic review 5805599630 and its inline comments). The PR was open and not merged. GitHub reported isDraft false. Left the ready state, the base `daily/2026-11-06`, and the head branch `feat/orchestrator-prompt-2026-11-06` unchanged. Commented out superseded prompt, README, and ledger wording in place and added the safeguards Audrey approved on 2026-11-07. Did not post review replies or resolve threads. No secret values were present, so none were copied into comments.
+- Inspection head before this session's commit: `b55299b1e9adc7ac835d0fe5833007cc8faaed61`.
+- Safeguards commit: `f3941f0ca7a22b026d572362dd81072f4a1ddf29`.
+- Correction to the 2026-11-06 PR-link entry above: that entry said Draft yes, which was true when the PR was opened. On 2026-11-07 the live PR view reported isDraft false. This session did not change that flag.
