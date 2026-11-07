@@ -82,11 +82,24 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
   | Read repos (which) | Yes: `midnghtsapphire/revvel-hail` only, on this installation. | **Audrey can change which repos** in GitHub App installation settings (https://github.com/settings/installations, Cursor). **The app permission set is fixed by the platform.** |
   | Write/push (which repos) | Yes: pushed `daily/2026-11-06` to `midnghtsapphire/revvel-hail`. | Same as above. |
   | Admin | No evidence of admin. Branch protection read returned 403. | Same. Administration is not shown as granted. |
-  | Merge PRs | Not attempted. This agent will not merge its own PRs. Rulesets on the repo are empty. [VERIFY] whether the token could merge if asked. | Audrey can add branch protection or rulesets under the repo Settings. The agent rule forbids merging anyway. |
+  | Merge PRs | Capability [VERIFY], not tested. Policy: this agent does not merge. An agent's claim of approval is not merge authorization. Rulesets on the repo were empty on 2026-11-06. | Audrey can add branch protection or rulesets under the repo Settings. Whether the token can merge was not tested. The permission set is fixed by the platform. |
   | Run/edit Actions workflows | Not attempted. [VERIFY] | App installation settings. Workflow runs may still need a human. |
+  | Create repos | Not attempted. [VERIFY]. | [VERIFY] until a create-repo check exists. A 403 from GET /user does not decide this. Audrey can change app installation settings. The permission set is fixed by the platform. |
+  | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. Opening PR 3 showed this token can create a pull request. Posting issue comments or review replies was not attempted on 2026-11-07. Discussions capability [VERIFY]. | Repo Settings, Features, plus the app's Issues and PRs permission (fixed by the platform). |
+  | Delete repos | Not attempted. [VERIFY]. | Keep deletion off unless a later check shows otherwise. Audrey can change this in the GitHub App installation settings. The permission set is fixed by the platform. |
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because the cell stated a no-merge policy as if it were the tested capability. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
+  | Merge PRs | Not attempted. This agent will not merge its own PRs. Rulesets on the repo are empty. [VERIFY] whether the token could merge if asked. | Audrey can add branch protection or rulesets under the repo Settings. The agent rule forbids merging anyway. |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because GET /user returning 403 only shows this installation token is not a user. It does not show repo creation is unavailable. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
   | Create repos | Not attempted. `GET /user` is 403. [VERIFY] likely no. | Creating repos is not something this installation token demonstrated. |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because the cell left discussion and comment capability unverified only until a draft PR existed, and PR creation has since been shown by PR 3. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
   | Post Discussions/issues/comments | Discussions are off on this repo. Issues are on. PR creation is the test for comments. [VERIFY until the draft PR exists] | Repo Settings, Features, plus the app's Issues/PRs permission (fixed by the platform). |
+-->
+<!-- 2026-11-07, Cursor cloud agent (Grok 4.7), reason: superseded because [VERIFY] no. stated a negative and a verification gap in the same cell. PR https://github.com/midnghtsapphire/revvel-hail/pull/3
   | Delete repos | Not attempted. [VERIFY] no. | Keep that off. |
+-->
+
 - Unverified: [VERIFY] full GitHub App permission list for the Cursor installation (contents, pull requests, issues, actions, administration). [VERIFY] whether branch protection exists on `main` (the protection endpoint was 403, and rulesets were empty).
 
 ### 2026-11-06: Cursor cloud agent (Grok 4.7), SESSION
@@ -99,3 +112,7 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 - Draft: yes. Base: `daily/2026-11-06`. Head: `feat/orchestrator-prompt-2026-11-06`.
 - Opening that PR shows this token can create pull requests on `midnghtsapphire/revvel-hail`. This agent did not merge it.
 
+### 2026-11-07: Cursor cloud agent (Grok 4.7), SESSION
+- Did: Read the live reviews on PR https://github.com/midnghtsapphire/revvel-hail/pull/3 (Gitar comments 4495581114 and 4495581345, Cubic review 5805599630 and its inline comments). The PR was open and not merged. GitHub reported isDraft false. Left the ready state, the base `daily/2026-11-06`, and the head branch `feat/orchestrator-prompt-2026-11-06` unchanged. Commented out superseded prompt, README, and ledger wording in place and added the safeguards Audrey approved on 2026-11-07. Did not post review replies or resolve threads. No secret values were present, so none were copied into comments.
+- Inspection head before this session's commit: `b55299b1e9adc7ac835d0fe5833007cc8faaed61`.
+- Correction to the 2026-11-06 PR-link entry above: that entry said Draft yes, which was true when the PR was opened. On 2026-11-07 the live PR view reported isDraft false. This session did not change that flag.
