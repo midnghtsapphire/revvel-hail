@@ -88,3 +88,11 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - Status: ok (partial soft-fails only). Known non-fatal: `scrape_tut_griffith.py` and `load_wine_jars_speak.py` hit `duplicate column name: verification_status` on schema.sql re-apply (`|| true` in run.sh). No new hard failures. No newer scrapers beyond run.sh (only unused helper: dbutil.py).
 - Note: no new artifact records.
 - DB: `/home/box/wine-research/artifacts.sqlite`
+
+## 2026-11-10 ~03:06 MST (America/Denver): Daily wine artifact scrape
+- Ran `/home/box/wine-research/./run.sh` (no `--refresh`; cached/live sources; no deletes). Exit 0.
+- Before → after: amarna 201→201, egypt_tut 34→34, linear_a 103→103, linear_b 67→67, malqata 98→98; total 503→503 (Δ0). wine_facts 28→28 (Δ0). source_files 6675→6675 (Δ0).
+- Verification unchanged: verified 52 / partial 438 / unverified 13.
+- Status: ok (partial soft-fails only). Known non-fatal: `scrape_tut_griffith.py` and `load_wine_jars_speak.py` hit `duplicate column name: verification_status` on schema.sql re-apply (`|| true` in run.sh). No new hard failures. No newer scrapers beyond run.sh (only unused helper: dbutil.py).
+- Note: no new artifact records. Previous scheduled run on 2026-11-09 was marked failed by the scheduler; this run completed cleanly with unchanged counts.
+- DB: `/home/box/wine-research/artifacts.sqlite`
