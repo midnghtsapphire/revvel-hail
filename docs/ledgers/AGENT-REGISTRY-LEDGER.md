@@ -87,3 +87,25 @@ Started 2026-11-04 at Audrey's request. This is the history of who each agent is
 ### 2026-11-06: Cursor cloud agent, SESSION (follow-up)
 - Did: push of `cursor/xp-swarm-orchestrator-pointer-e502` succeeded, so write/push on this repo is confirmed for this app token. Opened a normal PR into `main` (no `daily/` branch). Did not merge.
 - Commits/PRs: `5bfe3122b63fa65105f195662cdf22bbeaa9fe72`; https://github.com/midnghtsapphire/revvel-hail/pull/4
+
+### 2026-11-12: Manus (Manus AI agent), ARRIVAL
+- Platform: other: Manus (Manus AI agent), running in a Manus cloud sandbox and driven from the Manus desktop app on Windows.
+- Model (if known): not recorded by the platform in this session [VERIFY].
+- Acts on GitHub as: **`midnghtsapphire`**, through a GitHub App user-to-server token (prefix `ghu_`) from the Manus GitHub connector. The token is stored in the sandbox `gh` CLI (`~/.config/gh/hosts.yml`). Posts as midnghtsapphire: **yes**. Commits carry `Co-authored-by: Manus <dev-agent@manus.ai>`.
+- How verified (2026-11-12, about 13:15–15:26 MT): `gh auth status`, `gh api user`, `gh api repos/midnghtsapphire/<repo> --jq .permissions` for revvel-hail, revvel-standards, manus and deck-to-video-kit, plus the outcomes of the actual calls listed below. No tokens were pasted.
+- Permissions:
+  | Capability | Has it? | Audrey can change it? (where/how) or fixed by platform |
+  |---|---|---|
+  | Read repos (which) | Yes: every repo `midnghtsapphire` can reach (checked on 4) | Yes. Manus connector settings, or GitHub → Settings → Applications → Manus app access |
+  | Write/push (which repos) | Yes: pushed to `deck-to-video-kit`, plus branches on `manus`, `revvel-standards` and `revvel-hail` | Same as above |
+  | Admin | API reports `admin: true` on all 4 repos. However, `POST /repos/{repo}/pages` returned **403 Resource not accessible by integration**, and so did `GET /check-suites/{id}`, so the app does not get every admin endpoint | The app's permissions are fixed by the Manus GitHub App. Audrey can enable Pages herself in repo Settings |
+  | Merge PRs | Technically possible (no branch protection was checked). **Policy: never merges its own PRs** (AGENTS.md rule 6) | Yes, add branch protection |
+  | Run/edit Actions workflows | Edit: yes (pushed 4 workflow files). Run: every run ends in `startup_failure`, which is account-level billing, not the app | Yes, GitHub → Settings → Billing → Actions |
+  | Create repos | Yes: created private `midnghtsapphire/deck-to-video-kit` | Yes, through the connector settings |
+  | Post Discussions/issues/comments | Turned on Discussions for `deck-to-video-kit`; opened draft PRs | Yes, through the connector settings |
+  | Delete repos | Not tested and will not be tested (AGENTS.md rule 2) [VERIFY] | Yes, through the connector settings |
+- Unverified: [VERIFY] model name; [VERIFY] whether repo deletion is allowed.
+
+### 2026-11-12: Manus (Manus AI agent), SESSION
+- Did: built and shipped the Deck-to-Video Kit from Audrey's 30-second Taplio deck video. Created the private repo `midnghtsapphire/deck-to-video-kit` and Release `v1.0.0` (Playbook PDF $19, Full Kit $49, done-for-you from $299). Put the public store page on Manus hosting at https://deck2vid-fenbmfwl.manus.space/; Audrey approved public visibility. Opened tracking draft PRs in `manus`, `revvel-standards` and this repo. Merged nothing.
+- Commits/PRs: `deck-to-video-kit` `65cc781` (initial), plus https://github.com/midnghtsapphire/deck-to-video-kit/pull/2 (draft). The draft PRs in `manus`, `revvel-standards` and `revvel-hail` are listed in `deck-to-video-kit/docs/governance/TRACKING.md`.
