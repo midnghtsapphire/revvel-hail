@@ -105,3 +105,12 @@ Pylos: Wine Magazine (Rooms 104-105) ~48 sealings (Wr 1358-1361 VIN + e-ti-wa-/m
 - Status: ok (partial soft-fails only). Known non-fatal: `scrape_tut_griffith.py` and `load_wine_jars_speak.py` hit `duplicate column name: verification_status` on schema.sql re-apply (`|| true` in run.sh). No new hard failures. No newer scrapers beyond run.sh (only unused helper: dbutil.py).
 - Note: no new artifact records.
 - DB: `/home/box/wine-research/artifacts.sqlite`
+
+## 2026-11-20 ~02:59 MST (America/Denver): Daily wine artifact scrape
+- Ran `/home/box/wine-research/./run.sh` (no `--refresh`; cached/live sources; no deletes). Exit 0. Previous DB copy kept as `artifacts.prev-2026-11-20.sqlite`.
+- Linear A source check: local cache sha256 `9a14cc300201ac8ed07563c09b92142ab59de91a74e646b2e743ca6aeb695f5e` (1609512 bytes) matches `docs/POINTER_MANIFEST.tsv` in `midnghtsapphire/linear-a` for `midnghtsapphire/linear-a-sources` `from-linear-a/src/grammar/lineara.xyz/LinearAInscriptions.js`. The previous path `src/grammar/lineara.xyz/LinearAInscriptions.js` is no longer on `linear-a` main (moved 2026-11-14). Unauthenticated `--refresh` via raw.githubusercontent.com was not used; cache was not overwritten.
+- Before → after: amarna 201→201, egypt_tut 34→34, linear_a 103→103, linear_b 67→67, malqata 98→98; total 503→503 (Δ0). wine_facts 28→28 (Δ0). source_files 6675→6675 (Δ0).
+- Verification unchanged: verified 52 / partial 438 / unverified 13.
+- Status: ok (partial soft-fails only). Known non-fatal: `scrape_tut_griffith.py` and `load_wine_jars_speak.py` hit `duplicate column name: verification_status` on schema.sql re-apply (`|| true` in run.sh). No new hard failures. No newer scrapers beyond run.sh (only unused helper: dbutil.py).
+- Note: no new artifact records. No ledger entries after 2026-11-11. The 2026-11-19 scheduled run was marked failed by the scheduler. This run completed cleanly with unchanged counts.
+- DB: `/home/box/wine-research/artifacts.sqlite`
